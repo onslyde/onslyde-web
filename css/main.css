@@ -62,8 +62,13 @@ h1.logo {
 }
 
 .margin-top25{
+  margin-top: 25px;
+}
+
+.margin-top35{
   margin-top: 35px;
 }
+
 
 .margin-top45{
   margin-top: 45px;
