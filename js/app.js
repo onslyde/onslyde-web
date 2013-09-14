@@ -19,9 +19,49 @@ angular.module('onslide',
     $routeProvider
       .when('/home', {templateUrl: 'home/home.html', controller: 'LoginCtrl'})
       .when('/login', {templateUrl: 'global/login.html', controller: 'LoginCtrl'})
+      .when('/gettingstarted', {templateUrl: 'gettingstarted/gettingstarted.html', controller: 'LoginCtrl'})
       .otherwise({redirectTo: '/home'});
 
     $locationProvider
       .html5Mode(false)
       .hashPrefix('!');
-  }]);
+  }])
+  .run(function($rootScope) {
+    $rootScope.$on('$viewContentLoaded', function () {
+
+
+      $(document).foundation();
+
+//      $(document).foundation('orbit', {
+//        timer_speed: 20000,
+//        bullets: false,
+//        slide_number: false
+//      });
+
+      $("#how-can-use").on("orbit:after-slide-change", function(event, orbit) {
+        console.info("after slide change");
+        console.info("slide ", document.querySelectorAll('.slide'));
+        var counter = 1;
+        angular.forEach(document.querySelectorAll('.slide'), function(value, key){
+
+          if((orbit.slide_number + 1) === counter){
+            value.classList.remove('hidden');
+            value.classList.add('slide' + counter);
+          }else{
+            value.classList.add('hidden');
+            value.classList.remove('slide' + counter);
+          }
+          counter++;
+        });
+
+      });
+
+      $('#sign-up').on('invalid', function () {
+        alert('np')
+      })
+        .on('valid', function () {
+          alert('yes')
+        });
+    });
+  });
+

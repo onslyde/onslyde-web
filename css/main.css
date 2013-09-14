@@ -34,7 +34,7 @@ h2 {
 
 a {
   cursor: pointer;
-  color: #2aff00;
+  color: #45484d;
 }
 
 @font-face {
@@ -97,6 +97,19 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
 
 /*--------------------- home styles*/
 
+
+.top-buttons {
+  height: 84px;
+}
+
+.top-buttons li {
+  margin: 26% 0 0 0;
+}
+.o-button {
+
+   padding: 10px;
+}
+
 .how-can-use {
   /*border: 20px solid #fff;*/
   -moz-box-shadow:    0px 0px 11px 0px #a3a3a3;
@@ -110,13 +123,24 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
   background: -ms-linear-gradient(top, #000000 0%,#45484d 100%); /* IE10+ */
   background: linear-gradient(to bottom, #000000 0%,#45484d 100%); /* W3C */
   width: 100%;
-  /*height: 385px;*/
+  height: 335px;
+  /*overflow:hidden;*/
+}
+
+#how-can-use{
+  overflow: hidden;
+  height: 335px;
+}
+
+.orbit-slide-number {
+  display: none;
 }
 
 .slide {
   /*padding:20px;*/
   width: 100%;
-  height: 345px;
+  height: 335px;
+  overflow: hidden;
 }
 
 @-webkit-keyframes slide-poll
@@ -163,6 +187,22 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
   }
 }
 
+@-webkit-keyframes remote3
+{
+  from {
+    -webkit-transform: scale(1,1);
+    right: 85px;
+    bottom: -1px;
+    opacity: 1;
+  }
+  to {
+    -webkit-transform: scale(.7,.7);
+    right: 1px;
+    bottom: -100px;
+    opacity: .4;
+  }
+}
+
 @-webkit-keyframes caption
 {
   from {
@@ -171,12 +211,18 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
   }
   to {
     -webkit-transform: scale(1,1);
-    opacity: 1;
+    opacity: .9;
   }
 }
 
 .slide.hidden {
   opacity: 0;
+}
+
+.slide1 .caption,
+.slide2 .caption,
+.slide3 .caption{
+  background-color: #000;
 }
 
 .slide1 .slide-poll,
@@ -210,7 +256,15 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
 
 .slide2 .remote {
   bottom:-150px;
+  -webkit-animation-duration: 1s;
   -webkit-animation-name: remote2;
+}
+
+.slide3 .remote {
+  bottom:-1px;
+  right: 85px;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-name: remote3;
 }
 
 .slide1 .caption,

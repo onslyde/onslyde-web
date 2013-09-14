@@ -16,8 +16,8 @@ onslide.Controllers.controller('PageCtrl',
                      $routeParams,
                      $q,
                      $route) {
-
-
+      console.log($location)
+      $scope.location = $location;
 
 }]);
 
