@@ -52,8 +52,8 @@
     <h1 class="logo" onclick="window.location = '#!/home'">onslyde</h1>
   </div>
   <div class="large-9 columns">
-    <ul class="top-buttons button-group right">
-      <li ng-if="userInfo.created"><i class="pictogram">&#9874;</i>{{userInfo.name}}</li>
+    <ul class="top-buttons button-group right" ng-controller="LoginCtrl">
+      <li ng-if="userInfo.created"><a ng-click="logout()"><i class="pictogram">&#9874;</i>{{userInfo.name}}</a></li>
       <li ng-if="!userInfo.created"><a data-reveal-id="signin-container" class="o-button"><i class="pictogram">&#59198;</i>Sign In</a></li>
       <li><a href="#!/gettingstarted" class="o-button"><i class="pictogram">&#128213;</i>Getting Started</a></li>
 

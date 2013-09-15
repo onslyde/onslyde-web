@@ -22,7 +22,10 @@ onslyde.Controllers.controller('PageCtrl',
       $scope.location = $location;
 
 //    $rootScope.userInfo = {};
-
+    //todo - use $rootScope.registerMessage to see if there is an unfinished pres.
+    if(!$rootScope.registerMessage && $store.get('registerMessage')){
+      $store.bind($rootScope,'registerMessage');
+    }
 
     if(!$rootScope.userInfo && $store.get('userInfo')){
       $store.bind($rootScope,'userInfo');

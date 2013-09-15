@@ -5,10 +5,10 @@ onslyde.Controllers.controller('LoginCtrl', [ '$store', '$http', '$scope', '$roo
   $store.bind($rootScope,'userInfo');
 
 
-  $scope.login = function() {
+  $scope.login = function(email,password) {
 
-    var email = $scope.login_email;
-    var password = $scope.login_password;
+    var email = (email || $scope.login_email);
+    var password = (password || $scope.login_password);
 
     $http({method: 'POST', url: 'http://localhost:8080/go/members/login', data: $.param({email:email,password:password}), headers: {'Content-Type': 'application/x-www-form-urlencoded'}}).
       success(function(data, status, headers, config) {
@@ -31,9 +31,34 @@ onslyde.Controllers.controller('LoginCtrl', [ '$store', '$http', '$scope', '$roo
       }
   }
 
+  $scope.register = {};
+  $scope.registerMessage = '';
+
+  $scope.signup = function() {
+
+    var email = $scope.register.email;
+    var password = $scope.register.password;
+    var name = $scope.register.fullName;
+
+
+    $http({method: 'POST', url: 'http://localhost:8080/go/members', data: $scope.register, headers: {}}).
+      success(function(data, status, headers, config) {
+        $rootScope.registerMessage = data;
+        $store.set('registerMessage',$rootScope.registerMessage)
+        $scope.login(email,password)
+        $location.path('/gettingstarted');
+      }).
+      error(function(data, status, headers, config) {
+        $scope.registerAlert = 'Problem registering user.'
+      });
+
+
+  }
+
   $scope.logout = function() {
-
-
+    $store.remove('userInfo')
+    $store.remove('registerMessage')
+    $rootScope.userInfo = {};
   }
 
 
