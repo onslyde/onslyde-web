@@ -1,4 +1,4 @@
-onslide.Services.factory('utility', function ($q, $http, $resource) {
+onslyde.Services.factory('utility', function ($q, $http, $resource) {
 
   return {
 

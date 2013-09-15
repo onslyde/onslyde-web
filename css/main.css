@@ -128,7 +128,7 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
 }
 
 .top-buttons li {
-  margin: 10% 0 0 0;
+  margin: 10% 10px 0 0;
 }
 .o-button {
 

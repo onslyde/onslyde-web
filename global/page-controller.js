@@ -1,6 +1,6 @@
 'use strict'
 
-onslide.Controllers.controller('PageCtrl',
+onslyde.Controllers.controller('PageCtrl',
   [ 'pagedata',
     'utility',
     '$scope',
@@ -8,18 +8,26 @@ onslide.Controllers.controller('PageCtrl',
     '$location',
     '$routeParams',
     '$q',
-    '$route', function (pagedata,
+    '$route',
+    '$store', function (pagedata,
                      utility,
                      $scope,
                      $rootScope,
                      $location,
                      $routeParams,
                      $q,
-                     $route) {
+                     $route,
+                     $store) {
       console.log($location)
       $scope.location = $location;
 
-    $rootScope.userInfo = {};
+//    $rootScope.userInfo = {};
 
-}]);
+
+    if(!$rootScope.userInfo && $store.get('userInfo')){
+      $store.bind($rootScope,'userInfo');
+    }
+
+
+  }]);
 

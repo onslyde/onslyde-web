@@ -1,25 +1,27 @@
 'use strict';
 
-var onslide = onslide || {};
+var onslyde = onslyde || {};
 
-onslide.Constants = angular.module('onslide.constants', []);
-onslide.Services = angular.module('onslide.services', []);
-onslide.Controllers = angular.module('onslide.controllers', []);
-onslide.Filters = angular.module('onslide.filters', []);
-onslide.Directives = angular.module('onslide.directives', []);
+onslyde.Constants = angular.module('onslyde.constants', []);
+onslyde.Services = angular.module('onslyde.services', []);
+onslyde.Controllers = angular.module('onslyde.controllers', []);
+onslyde.Filters = angular.module('onslyde.filters', []);
+onslyde.Directives = angular.module('onslyde.directives', []);
 
-angular.module('onslide',
+angular.module('onslyde',
     ['ngResource',
-      'onslide.filters',
-      'onslide.services',
-      'onslide.directives',
-      'onslide.constants',
-      'onslide.controllers']).config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+      'localStorage',
+      'onslyde.filters',
+      'onslyde.services',
+      'onslyde.directives',
+      'onslyde.constants',
+      'onslyde.controllers']).config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
 
     $routeProvider
-      .when('/home', {templateUrl: 'home/home.html', controller: 'LoginCtrl'})
+      .when('/home', {templateUrl: 'home/home.html', controller: 'PageCtrl'})
       .when('/login', {templateUrl: 'global/login.html', controller: 'LoginCtrl'})
-      .when('/gettingstarted', {templateUrl: 'gettingstarted/gettingstarted.html', controller: 'LoginCtrl'})
+      .when('/gettingstarted', {templateUrl: 'gettingstarted/gettingstarted.html', controller: 'GetStartedCtrl'})
+      .when('/register', {templateUrl: 'home/register.html', controller: 'PageCtrl'})
       .otherwise({redirectTo: '/home'});
 
     $locationProvider

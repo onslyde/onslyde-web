@@ -1,4 +1,4 @@
-onslide.Services.factory('pagedata', function ($q, $http, $resource, $rootScope) {
+onslyde.Services.factory('pagedata', function ($q, $http, $resource, $rootScope) {
 
   return {
 
