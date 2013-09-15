@@ -25,27 +25,26 @@
       <h2>Sign In</h2>
     </div>
 
-      <fieldset>
+      <fieldset ng-controller="LoginCtrl">
 
-        <form name="signin" id="signin"  data-abide>
+        <form name="signin" id="signin"  data-abide >
+          {{loginAlert}}
           <div class="large-12">
             <label>Email</label>
-            <input type="text" placeholder="you@someemail.com" required pattern="email">
+            <input type="text" placeholder="you@someemail.com" required pattern="email" ng-model="login_email">
             <small class="error">Email is required  and should be in proper format (you@somewhere.com)</small>
           </div>
           <div class="large-12">
             <label>Password</label>
-            <input type="password" placeholder="something secret" required pattern="password">
+            <input type="password" placeholder="something secret" required pattern="password" ng-model="login_password">
             <small class="error">Password are created with 8 characters containing at least one uppercase letter and one number.</small>
           </div>
           <div class="large-12">
-            <button type="submit" class="right">Sign In</button>
+            <button type="submit" class="right" ng-click="login()">Sign In</button>
           </div>
         </form>
 
       </fieldset>
-
-  <a class="close-reveal-modal">&#215;</a>
 </div>
 
 <div class="row">
@@ -54,8 +53,9 @@
   </div>
   <div class="large-9 columns">
     <ul class="top-buttons button-group right">
-      <li><a href="#" data-reveal-id="signin-container" class="o-button">Sign In</a></li>
-      <li><a href="#!/gettingstarted" class="o-button">Getting Started</a></li>
+      <li ng-if="userInfo.created">{{userInfo.name}}</li>
+      <li ng-if="!userInfo.created"><a data-reveal-id="signin-container" class="o-button"><i class="pictogram">&#59198;</i>Sign In</a></li>
+      <li><a href="#!/gettingstarted" class="o-button"><i class="pictogram">&#128213;</i>Getting Started</a></li>
 
     </ul>
   </div>

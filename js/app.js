@@ -38,6 +38,14 @@ angular.module('onslide',
 //        slide_number: false
 //      });
 
+      $(document)
+        .foundation()
+        .foundation('abide', {
+          patterns: {
+            password: /^[a-zA-Z]\w{3,14}$/
+          }
+        });
+
       $("#how-can-use").on("orbit:after-slide-change", function(event, orbit) {
         console.info("after slide change");
         console.info("slide ", document.querySelectorAll('.slide'));

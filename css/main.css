@@ -37,12 +37,32 @@ a {
   color: #45484d;
 }
 
+p {
+  font-size: 1.1em;
+  font-weight: 300;
+}
+
+p.intro {
+  color: #777;
+}
+
 @font-face {
   font-family: 'entypo';
   src: url('entypo/entypo.eot');
   src: url('entypo/entypo.eot?#iefix') format('embedded-opentype'), url('entypo/entypo.woff') format('woff'), url('entypo/entypo.ttf') format('truetype'), url('entypo/entypo.svg#entypo') format('svg');
   font-weight: normal;
   font-style: normal;
+}
+
+i.pictogram {
+  font-family: "entypo";
+  display: inline-block;
+  margin: 0 5px 0 0;
+  font-size: 2.5em;
+  line-height: 0.3;
+  font-style: normal;
+  font-weight: lighter;
+  -webkit-font-smoothing: antialiased;
 }
 
 /*--------------------- structural setup and overrides*/
@@ -53,7 +73,7 @@ h1.logo {
   font-weight: 900;
   font-style: italic;
   text-transform: none;
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   margin-bottom: 0;
 }
 
@@ -104,11 +124,11 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
 
 
 .top-buttons {
-  height: 84px;
+  height: 74px;
 }
 
 .top-buttons li {
-  margin: 26% 0 0 0;
+  margin: 10% 0 0 0;
 }
 .o-button {
 

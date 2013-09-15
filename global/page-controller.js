@@ -19,5 +19,7 @@ onslide.Controllers.controller('PageCtrl',
       console.log($location)
       $scope.location = $location;
 
+    $rootScope.userInfo = {};
+
 }]);
 
