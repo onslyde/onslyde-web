@@ -1,3 +1,4 @@
+window.runOrbit = function(window,document,undefined){
 ;(function ($, window, document, undefined) {
   'use strict';
 
@@ -410,3 +411,4 @@
 
     
 }(Foundation.zj, this, this.document));
+}

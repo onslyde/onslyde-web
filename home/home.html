@@ -42,34 +42,37 @@
   </div>
 
   <div class="large-5 columns login" ng-if="!registerMessage.sessionId && !userInfo.created">
-    <div ng-controller="LoginCtrl">
+
       <h2>It's Free</h2>
       <p>Create your account to get started on your first presentation.</p>
-      {{registerAlert}}
-      <form id="sign-up" data-abide>
+
+      <div ng-controller="LoginCtrl">
+        {{registerAlert}}
+
+      <form id="sign-up" name="sign-up" data-abide>
         <div class="large-12">
           <label>Your Name</label>
-          <input ng-model="register.fullName" type="text" placeholder="F. Roosevelt" required pattern="[a-zA-Z]+">
+          <input ng-model="register.fullName" type="text" placeholder="Your Name" required pattern="[a-zA-Z]+">
           <small class="error">Name is required and must be a string.</small>
         </div>
         <div class="large-12">
           <label>Email</label>
-          <input ng-model="register.email" type="email" placeholder="you@someemail.com" required pattern="email">
+          <input ng-model="register.email" type="email" placeholder="you@somewhere.com" required pattern="email">
           <small class="error">Email is required  and should be in proper format (you@somewhere.com)</small>
         </div>
         <div class="large-12">
           <div class="row collapse">
             <label>Password</label>
             <input ng-model="register.password" type="password" placeholder="something secret" required>
-            <small class="error">Password must be 8 characters with at least one uppercase letter and one number.</small>
+            <small class="error">Password must be within 3 to 14 characters.</small>
           </div>
         </div>
         <div class="large-12">
-          <button type="submit" class="right" ng-click="signup()">Create</button>
+          <button type="submit" class="button right">Create</button>
         </div>
       </form>
-    </div>
 
+      </div>
   </div>
 
   <div ng-if="registerMessage.sessionId || userInfo.created">
@@ -102,3 +105,5 @@
     <img src="images/where-used-sprite.png"/>
   </div>
 </div>
+
+

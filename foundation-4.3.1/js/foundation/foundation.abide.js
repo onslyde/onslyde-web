@@ -1,5 +1,6 @@
 /*jslint unparam: true, browser: true, indent: 2 */
 
+window.runAbide = function(window,document,undefined){
 ;(function ($, window, document, undefined) {
   'use strict';
 
@@ -192,3 +193,4 @@
     }
   };
 }(Foundation.zj, this, this.document));
+}

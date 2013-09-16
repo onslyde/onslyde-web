@@ -12,6 +12,7 @@
 // using an anonymous function to redefine the $ shorthand name.
 // See http://docs.jquery.com/Using_jQuery_with_Other_Libraries
 // and http://zeptojs.com/
+window.runFoundation = function(window,document,undefined){
 var libFuncName = null;
 
 if (typeof jQuery === "undefined" &&
@@ -438,3 +439,5 @@ if (typeof jQuery === "undefined" &&
   };
 
 }(libFuncName, this, this.document));
+}
+

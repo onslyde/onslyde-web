@@ -31,6 +31,11 @@ onslyde.Controllers.controller('PageCtrl',
       $store.bind($rootScope,'userInfo');
     }
 
+//    $scope.$on('$routeChangeSuccess', function () {
+//
+//
+//
+//    });
 
   }]);
 

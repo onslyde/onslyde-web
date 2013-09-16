@@ -34,7 +34,7 @@ h2 {
 
 a {
   cursor: pointer;
-  color: #45484d;
+  color: #B16A00;
 }
 
 p {
@@ -128,7 +128,7 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
 }
 
 .top-buttons li {
-  margin: 10% 10px 0 0;
+  margin: 25px 10px 0 0;
 }
 .o-button {
 

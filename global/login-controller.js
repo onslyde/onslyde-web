@@ -5,6 +5,9 @@ onslyde.Controllers.controller('LoginCtrl', [ '$store', '$http', '$scope', '$roo
   $store.bind($rootScope,'userInfo');
 
 
+
+
+
   $scope.login = function(email,password) {
 
     var email = (email || $scope.login_email);
@@ -12,24 +15,38 @@ onslyde.Controllers.controller('LoginCtrl', [ '$store', '$http', '$scope', '$roo
 
     $http({method: 'POST', url: 'http://localhost:8080/go/members/login', data: $.param({email:email,password:password}), headers: {'Content-Type': 'application/x-www-form-urlencoded'}}).
       success(function(data, status, headers, config) {
-        console.log(data)
-
         if(data.created){
           $('#signin').foundation('reveal', 'close');
           $rootScope.userInfo = data;
           $store.set('userInfo',$rootScope.userInfo)
           $store.bind($rootScope,'userInfo');
-          console.log('bind it', $rootScope.userInfo)
+          if($rootScope.userInfo && !$rootScope.userInfo.created){
+            $scope.loginAlert = 'There was a problem logging in.'
+          }
         }
       }).
       error(function(data, status, headers, config) {
         $scope.loginAlert = 'Wrong password or user not found.'
       });
 
-      if($rootScope.userInfo && !$rootScope.userInfo.created){
-        $scope.loginAlert = 'There was a problem logging in.'
-      }
+
   }
+
+
+  //hooks into foundations validation - todo - fix with oob angular (or directive)
+  $('#signin').on('invalid', function () {}).on('valid', function () {
+    $scope.$apply(function() {
+      $scope.login();
+    });
+
+  });
+
+  $('#sign-up').on('invalid', function () {}).on('valid', function () {
+    $scope.$apply(function() {
+      $scope.signup();
+    });
+
+    });
 
   $scope.register = {};
   $scope.registerMessage = '';
@@ -59,6 +76,7 @@ onslyde.Controllers.controller('LoginCtrl', [ '$store', '$http', '$scope', '$roo
     $store.remove('userInfo')
     $store.remove('registerMessage')
     $rootScope.userInfo = {};
+    $rootScope.registerMessage = {};
   }
 
 
